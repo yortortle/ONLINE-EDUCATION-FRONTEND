@@ -31,8 +31,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="container1">
-        <Aside />
-        <Main />
+        <Aside handleView={this.handleView}/>
+        <Main
+          handleView={this.handleView}
+          formInputs={this.state.formInputs}
+          view={this.state.view}
+        />
       </div>
     )
   }
