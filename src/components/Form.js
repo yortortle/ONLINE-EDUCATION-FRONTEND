@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Form extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
       title: '',
@@ -14,9 +14,11 @@ class Form extends React.Component {
       updated_at: null
     }
   }
+
   handleChange = (e) => {
     this.setState({[e.target.id] : e.target.value})
   }
+
   handleSubmit = (e) => {
     // prevent default form submit action
     e.preventDefault()
@@ -29,6 +31,7 @@ class Form extends React.Component {
       this.props.handleUpdate(this.state)
     }
   }
+
   componentDidMount() {
     this.setState({
       title: this.props.formInputs.title,
@@ -42,39 +45,41 @@ class Form extends React.Component {
     })
   }
 
+
   render() {
     return (
         <div>
-        <label for="exampleFormControlInput1">Insert Title</label>
-        <input type="text" class="form-control" placeholder="Any descriptive title for the resource" onChange={this.handleChange} value={this.state.description} />
-
         <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlInput1">Insert Title</label>
-            <input type="text" class="form-control" placeholder="Any descriptive title for the resource" onChange={this.handleChange} />
+            <input type="text" class="form-control" id="title" placeholder="Any descriptive title for the resource" onChange={this.handleChange} />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlInput1">Link</label>
-            <input type="text" class="form-control" placeholder="URL to link to the website" value={this.state.URL} onChange={this.handleChange}/>
+            <input type="text" className="form-control" id="URL" placeholder="URL to link to the website" value={this.state.URL} onChange={this.handleChange}/>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlInput1">Cost</label>
-            <input type="text" class="form-control" placeholder="Price of the resource" value={this.state.cost}
+            <input type="number" className="form-control" id="cost" placeholder="Price of the resource" value={this.state.cost}
             onChange={this.handleChange}/>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlSelect1">Select Subject</label>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select className="form-control" id="subject" value={this.state.subject} onChange={this.handleChange}>
+              <option>Select One</option>
+              <option>Art</option>
+              <option>Computer Science</option>
+              <option>History</option>
+              <option>Language</option>
+              <option>Philosophy</option>
+              <option>Psychology</option>
+              <option>Mathematics</option>
+              <option>Science</option>
             </select>
           </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleChange}> </textarea>
             </div>
           <button className="btn btn-primary" variant="primary" type="submit" value="submit"> Submit </button>
           </form>
