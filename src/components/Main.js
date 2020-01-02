@@ -4,6 +4,7 @@ import Home from './Home.js'
 import About from './About.js'
 import Art from './Art.js'
 import CS from './CS.js'
+import Form from './Form.js'
 
 //api connection
 let baseUrl = '';
@@ -35,7 +36,7 @@ class Main extends React.Component {
   }
 
   //function to handle creation of new entries
-  createEntries = (createData) => {
+  createEntry = (createData) => {
     fetch(`${baseUrl}/entry`, {
       body: JSON.stringify(createData),
       method: 'POST',
@@ -115,7 +116,17 @@ class Main extends React.Component {
   render () {
     let view1;
     if (this.props.view.page === 'viewAll') {
-      view1 = this.state.entries.map((entryData) => (
+      let allArray = this.state.entries;
+      allArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = allArray.map((entryData) => (
         <Entry
           collapsible={this.collapsible}
           handleView={this.props.handleView}
@@ -135,6 +146,15 @@ class Main extends React.Component {
           <About
           />
     }
+    else if (this.props.view.page === 'addEntry'){
+      view1 =
+      <Form
+        handleUpdate={this.updateEntry}
+        handleCreate={this.createEntry}
+        formInputs={this.props.formInputs}
+        view={this.props.view}
+      />
+    }
     else if (this.props.view.page === 'viewArt') {
       let artArray = [];
       for (var i = 0; i < this.state.entries.length; i++) {
@@ -142,6 +162,15 @@ class Main extends React.Component {
           artArray.push(this.state.entries[i])
         }
       }
+      artArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
       view1 = artArray.map((entryData) => (
         <Art
           collapsible={this.collapsible}
@@ -159,6 +188,15 @@ class Main extends React.Component {
           csArray.push(this.state.entries[i])
         }
       }
+      csArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
       view1 = csArray.map((entryData) => (
         <CS
           collapsible={this.collapsible}
@@ -169,11 +207,12 @@ class Main extends React.Component {
         />
       ))
     }
+
     return(
       <div className="main-container">
         <div className="test">
           <div className="display">
-            <h1 className="display-6">Online Education</h1>
+            <h2 className="display-6">Online Education</h2>
             <p className="lead">An encyclopedia of online educational resources</p>
           </div>
         </div>

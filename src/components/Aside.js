@@ -19,13 +19,17 @@ class Aside extends React.Component {
             </div>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewArt')}}> Art </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewCS')}}> Computer Science </li>
-            <li className="dropdown-item" onClick={() => {this.props.handleView('viewDesign')}}> Graphic Design </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewHistory')}}> History </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewLanguage')}}> Language </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewPhilosophy')}}> Philosophy </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewPsychology')}}> Psychology </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewMath')}}> Mathematics </li>
-            <li className="dropdown-item" onClick={() => {this.props.handleView('viewScience')}}> Science</li>
+            <li className="dropdown-item" onClick={() => {this.props.handleView('viewScience')}}> Science</li><br/>
+            <div className="sections">
+              <li className="sections"> Forms </li>
+              <div className="dropdown-divider" ></div>
+            </div>
+            <li className="dropdown-item" onClick={() => {this.props.handleView('addEntry')}}> New Resource</li><br/>
           </ul>
       </aside>
     )
