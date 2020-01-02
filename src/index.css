@@ -30,6 +30,7 @@ code {
   width: 100%;
   min-height: 800px;
   padding: 20px;
+  /* font-size: 11px; */
 }
 
 /* NAV STYLING */
@@ -75,9 +76,13 @@ code {
 }
 
 .collapseMain{
-
+  color: blue;
 }
 
 .collapseContent{
   display: none;
+}
+
+.displayList{
+  margin-left: 20px;
 }

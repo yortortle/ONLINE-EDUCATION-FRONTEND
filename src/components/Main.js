@@ -100,29 +100,24 @@ class Main extends React.Component {
     this.fetchEntries()
   }
 
-  collapsible = () => {
-    var coll = document.getElementsByClassName("collapseContent");
-    var i;
+  collapsible = (id) => {
     console.log("hi");
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
+      // this.classList.toggle("active");
+      let content = document.getElementById(id)
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
   }
+
 
   render () {
     let view1;
     if (this.props.view.page === 'viewAll') {
       view1 = this.state.entries.map((entryData) => (
         <Entry
+          collapsible={this.collapsible}
           handleView={this.props.handleView}
           key={entryData.id}
           entryData={entryData}
@@ -166,6 +161,7 @@ class Main extends React.Component {
       }
       view1 = csArray.map((entryData) => (
         <CS
+          collapsible={this.collapsible}
           handleView={this.props.handleView}
           key={entryData.id}
           entryData={entryData}
