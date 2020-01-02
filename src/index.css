@@ -73,3 +73,11 @@ code {
   background-color: #f9f9f9;
   margin-bottom: 20px;
 }
+
+.collapseMain{
+
+}
+
+.collapseContent{
+  display: none;
+}

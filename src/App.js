@@ -44,6 +44,9 @@ class App extends React.Component {
       case 'viewAll':
         pageTitle = 'View All Entries'
         break
+      case 'about':
+        pageTitle = 'View All Entries'
+        break
       case 'addEntry':
         pageTitle = 'New Resource'
         break

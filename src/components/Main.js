@@ -2,6 +2,8 @@ import React from 'react';
 import Entry from './Entry.js'
 import Home from './Home.js'
 import About from './About.js'
+import Art from './Art.js'
+import CS from './CS.js'
 
 //api connection
 let baseUrl = '';
@@ -98,6 +100,24 @@ class Main extends React.Component {
     this.fetchEntries()
   }
 
+  collapsible = () => {
+    var coll = document.getElementsByClassName("collapseContent");
+    var i;
+    console.log("hi");
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  }
+
   render () {
     let view1;
     if (this.props.view.page === 'viewAll') {
@@ -119,6 +139,39 @@ class Main extends React.Component {
           view1 =
           <About
           />
+    }
+    else if (this.props.view.page === 'viewArt') {
+      let artArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Art") {
+          artArray.push(this.state.entries[i])
+        }
+      }
+      view1 = artArray.map((entryData) => (
+        <Art
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+    else if (this.props.view.page === 'viewCS') {
+      let csArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Computer Science") {
+          csArray.push(this.state.entries[i])
+        }
+      }
+      view1 = csArray.map((entryData) => (
+        <CS
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
     }
     return(
       <div className="main-container">
