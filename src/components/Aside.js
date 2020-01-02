@@ -7,7 +7,7 @@ class Aside extends React.Component {
         <img src="https://p.kindpng.com/picc/s/136-1367954_healthcare-and-education-icon-png-download-healthcare-and.png" className="icon"/>
           <ul className="aside-list">
             <div className="sections">
-              <li className="sections"> Nav </li>
+              <li className="sections"> Navigation </li>
               <div className="dropdown-divider" ></div>
             </div>
             <li className="dropdown-item"> Home </li>

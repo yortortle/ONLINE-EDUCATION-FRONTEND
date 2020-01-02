@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       view: {
         page: 'home',
-        pageTitle: 'View All'
+        pageTitle: 'Home'
       },
       formInputs: {
         title: null,
@@ -24,7 +24,53 @@ class App extends React.Component {
     }
   }
   handleView = (view, postData) => {
+    // declare an empty variable
+    let pageTitle = ''
+    let formInputs = {
+      title: '',
+      subject: '',
+      description: '',
+      URL: '',
+      cost: '',
+      id: null,
+      created_at: null,
+      updated_at: null
+    }
 
+    switch (view) {
+      case 'home':
+        pageTitle = 'Home Page'
+        break
+      case 'viewAll':
+        pageTitle = 'View All Entries'
+        break
+      case 'addEntry':
+        pageTitle = 'New Resource'
+        break
+      case 'editEntry':
+        pageTitle = 'Edit Resource'
+        formInputs = {
+          title: postData.title,
+          subject: postData.subject,
+          description: postData.description,
+          URL: postData.URL,
+          cost: postData.cost,
+          id: postData.id,
+          created_at: postData.created_at,
+          updated_at: postData.updated_at
+        }
+        break
+      default:
+        break
+    }
+
+    this.setState({
+      view: {
+        page: view,
+        pageTitle: pageTitle
+      },
+      formInputs: formInputs
+    })
   }
 
 

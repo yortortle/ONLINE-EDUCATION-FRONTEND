@@ -1,5 +1,7 @@
 import React from 'react';
 import Entry from './Entry.js'
+import Home from './Home.js'
+import About from './About.js'
 
 //api connection
 let baseUrl = '';
@@ -98,7 +100,7 @@ class Main extends React.Component {
 
   render () {
     let view1;
-    if (this.props.view.page === 'home') {
+    if (this.props.view.page === 'viewAll') {
       view1 = this.state.entries.map((entryData) => (
         <Entry
           handleView={this.props.handleView}
@@ -107,6 +109,16 @@ class Main extends React.Component {
           handleDelete={this.deleteEntry}
         />
       ))
+    }
+    else if (this.props.view.page === 'home'){
+          view1 =
+          <Home
+          />
+    }
+    else if (this.props.view.page === 'about'){
+          view1 =
+          <About
+          />
     }
     return(
       <div className="main-container">
