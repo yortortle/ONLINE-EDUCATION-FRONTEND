@@ -18,18 +18,18 @@ code {
 }
 
 .aside-container{
-  border: 1px solid black;
+  border: 1px solid rgba(178, 220, 250, 0.8);
   width: 200px;
   font-size: 11px;
-  min-height: 800px;
+  min-height: 1000px;
   background-color: rgba(211, 211, 211, 0.2);
 }
 
 .main-container{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 100%;
-  min-height: 800px;
-  padding: 20px;
+  min-height: 1000px;
+  padding: 28px;
   /* font-size: 11px; */
 }
 
@@ -47,7 +47,7 @@ code {
 }
 
 .icon{
-  width: 75%;
+  width: 73%;
   padding: 12px;
   margin-left: 10px;
 }
@@ -76,7 +76,11 @@ code {
 }
 
 .collapseMain{
-  color: blue;
+  color: rgba(55,49,148);
+}
+
+.entryDiv{
+
 }
 .collapseMain:hover{
   color: red;
@@ -91,5 +95,11 @@ code {
 }
 
 #linkID{
-  
+  color: rgba(66,153,225);
+}
+
+#linkID:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: #FF0000;
 }

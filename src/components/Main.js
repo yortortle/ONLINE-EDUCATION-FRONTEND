@@ -2,10 +2,10 @@ import React from 'react';
 import Entry from './Entry.js'
 import Home from './Home.js'
 import About from './About.js'
+import Form from './Form.js'
 import Art from './Art.js'
 import CS from './CS.js'
-import Form from './Form.js'
-
+import History from './History.js'
 //api connection
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -49,12 +49,9 @@ class Main extends React.Component {
       return createdPost.json()
     })
     .then(jsonedPost => {
-      console.log(this.props);
-      this.props.handleView('home')
-      this.setState(prevState => {
-        prevState.entries = jsonedPost
-        return { entries: prevState.entries }
-      })
+      console.log(this.state.entries);
+      this.fetchEntries();
+      this.props.handleView('viewAll')
     })
     .catch(err => console.log(err))
   }
@@ -71,7 +68,7 @@ class Main extends React.Component {
       })
         .then(updatedPost => {
           // switch back to the home view after editing a post
-          this.props.handleView('home')
+          this.props.handleView('viewAll')
           this.fetchEntries()
         })
         .catch(err => console.log(err))
@@ -216,6 +213,33 @@ class Main extends React.Component {
         />
       ))
     }
+    else if (this.props.view.page === 'viewHistory') {
+      let historyArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="History") {
+          historyArray.push(this.state.entries[i])
+        }
+      }
+      historyArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = historyArray.map((entryData) => (
+        <History
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+
 
     return(
       <div className="main-container">

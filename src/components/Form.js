@@ -52,16 +52,16 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label for="exampleFormControlInput1">Insert Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Any descriptive title for the resource" value={this.state.title} onChange={this.handleChange} />
+            <input type="text" class="form-control" id="title" placeholder="Any descriptive title for the resource" value={this.state.title} onChange={this.handleChange} required/>
           </div>
           <div className="form-group">
             <label for="exampleFormControlInput1">Link</label>
-            <input type="text" className="form-control" id="URL" placeholder="URL to link to the website" value={this.state.URL} onChange={this.handleChange}/>
+            <input type="text" className="form-control" id="URL" placeholder="URL to link to the website" value={this.state.URL} onChange={this.handleChange} required/>
           </div>
           <div className="form-group">
             <label for="exampleFormControlInput1">Cost</label>
             <input type="number" className="form-control" id="cost" placeholder="Price of the resource" value={this.state.cost}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange} required/>
           </div>
           <div className="form-group">
             <label for="exampleFormControlSelect1">Select Subject</label>
@@ -79,7 +79,7 @@ class Form extends React.Component {
           </div>
             <div className="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
-              <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleChange}> </textarea>
+              <textarea className="form-control" id="description" rows="3" placeholder="Enter a description of some sort - don't leave blank" value={this.state.description} onChange={this.handleChange} required> </textarea>
             </div>
           <button className="btn btn-primary" variant="primary" type="submit" value="submit"> Submit </button>
           </form>
