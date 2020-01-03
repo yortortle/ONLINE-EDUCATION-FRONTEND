@@ -18,7 +18,7 @@ let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://cors-anywhere.herokuapp.com/http://online-education2020.herokuapp.com/api'
 } else {
-  baseUrl = 'http://cors-anywhere.herokuapp.com/http://online-education2020.herokuapp.com/api';
+  baseUrl = 'https://cors-anywhere.herokuapp.com/https://online-education2020.herokuapp.com/api';
 }
 
 class Main extends React.Component {
