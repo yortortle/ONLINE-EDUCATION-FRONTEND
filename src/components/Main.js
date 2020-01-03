@@ -155,6 +155,15 @@ class Main extends React.Component {
         view={this.props.view}
       />
     }
+    else if (this.props.view.page === 'editEntry'){
+      view1 =
+      <Form
+        handleUpdate={this.updateEntry}
+        handleCreate={this.createEntry}
+        formInputs={this.props.formInputs}
+        view={this.props.view}
+      />
+    }
     else if (this.props.view.page === 'viewArt') {
       let artArray = [];
       for (var i = 0; i < this.state.entries.length; i++) {

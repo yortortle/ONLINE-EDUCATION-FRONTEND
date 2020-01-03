@@ -52,7 +52,7 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label for="exampleFormControlInput1">Insert Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Any descriptive title for the resource" onChange={this.handleChange} />
+            <input type="text" class="form-control" id="title" placeholder="Any descriptive title for the resource" value={this.state.title} onChange={this.handleChange} />
           </div>
           <div className="form-group">
             <label for="exampleFormControlInput1">Link</label>
