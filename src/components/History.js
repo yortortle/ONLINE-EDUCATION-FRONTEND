@@ -17,7 +17,4 @@ class History extends React.Component {
   }
 }
 
-// =============================
-// EXPORT COMPONENT: SUBMISSION
-// =============================
 export default History;

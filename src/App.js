@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from './components/Main.js'
 import Aside from './components/Aside.js'
-
+import Footer from './components/Footer.js'
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -79,6 +79,7 @@ class App extends React.Component {
 
   render() {
     return (
+      <div>
       <div className="container1">
         <Aside handleView={this.handleView}/>
         <Main
@@ -86,6 +87,8 @@ class App extends React.Component {
           formInputs={this.state.formInputs}
           view={this.state.view}
         />
+      </div>
+        <Footer />
       </div>
     )
   }

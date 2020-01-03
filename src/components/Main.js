@@ -6,6 +6,13 @@ import Form from './Form.js'
 import Art from './Art.js'
 import CS from './CS.js'
 import History from './History.js'
+import Language from './Language.js'
+import Philosophy from './Philosophy.js'
+import Psychology from './Psychology.js'
+import Mathematics from './Mathematics.js'
+import Science from './Science.js'
+
+
 //api connection
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -108,7 +115,6 @@ class Main extends React.Component {
         content.style.display = "block";
       }
   }
-
 
   render () {
     let view1;
@@ -239,6 +245,136 @@ class Main extends React.Component {
         />
       ))
     }
+    else if (this.props.view.page === 'viewLanguage') {
+      let languageArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Language") {
+          languageArray.push(this.state.entries[i])
+        }
+      }
+      languageArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = languageArray.map((entryData) => (
+        <Language
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+    else if (this.props.view.page === 'viewPhilosophy') {
+      let philosophyArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Philosophy") {
+          philosophyArray.push(this.state.entries[i])
+        }
+      }
+      philosophyArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = philosophyArray.map((entryData) => (
+        <Philosophy
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+    else if (this.props.view.page === 'viewPsychology') {
+      let psychArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Psychology") {
+          psychArray.push(this.state.entries[i])
+        }
+      }
+      psychArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = psychArray.map((entryData) => (
+        <Psychology
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+    else if (this.props.view.page === 'viewMath') {
+      let mathArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Mathematics") {
+          mathArray.push(this.state.entries[i])
+        }
+      }
+      mathArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = mathArray.map((entryData) => (
+        <Mathematics
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
+    else if (this.props.view.page === 'viewScience') {
+      let scienceArray = [];
+      for (var i = 0; i < this.state.entries.length; i++) {
+        if (this.state.entries[i].subject==="Science") {
+          scienceArray.push(this.state.entries[i])
+        }
+      }
+      scienceArray.sort(function(a, b){
+          let titleA = a.title.toLowerCase()
+          let titleB = b.title.toLowerCase();
+          if(titleA < titleB)
+            { return -1; }
+          if(titleA > titleB)
+            { return 1; }
+          return 0;
+      })
+      view1 = scienceArray.map((entryData) => (
+        <Science
+          collapsible={this.collapsible}
+          handleView={this.props.handleView}
+          key={entryData.id}
+          entryData={entryData}
+          handleDelete={this.deleteEntry}
+        />
+      ))
+    }
 
 
     return(
@@ -246,7 +382,7 @@ class Main extends React.Component {
         <div className="test">
           <div className="display">
             <h2 className="display-6">Online Education</h2>
-            <p className="lead">An encyclopedia of online educational resources</p>
+            <p className="lead">An anthology of online educational resources</p>
           </div>
         </div>
         {view1}

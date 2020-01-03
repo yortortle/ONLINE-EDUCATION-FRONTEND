@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Philosophy extends React.Component {
+class Mathematics extends React.Component {
   render() {
     return (
       <div className="entryDiv">
@@ -17,4 +17,4 @@ class Philosophy extends React.Component {
   }
 }
 
-export default Philosophy;
+export default Mathematics;

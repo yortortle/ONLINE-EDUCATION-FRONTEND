@@ -11,7 +11,6 @@ class Aside extends React.Component {
               <div className="dropdown-divider" ></div>
             </div>
             <li className="dropdown-item" onClick={() => {this.props.handleView('home')}}> Home </li>
-            <li className="dropdown-item" onClick={() => {this.props.handleView('about')}}> About </li>
             <li className="dropdown-item" onClick={() => {this.props.handleView('viewAll')}}> View All </li><br/>
             <div className="sections">
               <li className="sections"> Subjects </li>

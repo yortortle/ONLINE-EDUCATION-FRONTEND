@@ -17,7 +17,4 @@ class Language extends React.Component {
   }
 }
 
-// =============================
-// EXPORT COMPONENT: SUBMISSION
-// =============================
 export default Language;
