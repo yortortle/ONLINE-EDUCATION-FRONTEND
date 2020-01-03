@@ -118,7 +118,7 @@ code {
   padding: 15px;
   border-width: 0.5px 0px 0px 0px;
   border-radius: 1px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,11 +126,19 @@ code {
 }
 
 .footer-element{
+
 }
 .logo {
   height: 50px;
   width: 50px;
-  margin: 0px 150px 0px 150px;
+  margin: 10px 130px 0px 130px;
+}
+
+.footerDivs{
+  text-align: center;
+  font-size: 11px;
+  font-family: sans-serif;
+  background-color: rgba(211, 211, 211, 0.2);
 }
 
 .hover:hover{
