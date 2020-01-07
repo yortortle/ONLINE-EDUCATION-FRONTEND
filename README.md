@@ -1,14 +1,30 @@
 # title
-asdf
+Online Education 2020
 # live site
-adf
+https://online-education-2021.herokuapp.com/
+
 # author
-adsf
+Troy Hancock
+
 # Technologies Used
-asdf
+PHP Laravel
+PostGres
+ReactJS
+Javascript
+HTML
+CSS
+Bootstrap
+
 # User Stories
-adsf
+Users can view information about the app
+Users can submit new resources
+Users can edit resources
+Users can sort resources by subject
+Users can click on a resource to see a collapsible source of more information
+Users can delete resources
+Users can edit resources
+
 # Approach Taken
-adsf
+
 # Unsolved Problems
-asdf
+
