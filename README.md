@@ -1,9 +1,10 @@
-# title
+# Title
 Online Education 2020
-# live site
+
+# Live Site
 https://online-education-2021.herokuapp.com/
 
-# author
+# Author
 Troy Hancock
 
 # Technologies Used
