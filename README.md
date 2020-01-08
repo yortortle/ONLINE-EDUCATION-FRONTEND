@@ -9,11 +9,17 @@ Troy Hancock
 
 # Technologies Used
 PHP Laravel
+
 PostGres
+
 ReactJS
+
 Javascript
+
 HTML
+
 CSS
+
 Bootstrap
 
 # User Stories
